@@ -14,14 +14,8 @@ module.exports = function(grunt) {
       build: ['build']
     },
     copy: {
-      css: {
-        expand: true,  
-        cwd: 'less/',
-        src: [ 'img/**', 'js/script.js' ],
-        dest: 'css/',
-      },
       build: {
-        src: ['css/**', 'index.html', 'fonts/*' ],
+        src: ['css/**', 'index.html', 'fonts/**', 'img/**' ],
         dest: 'build/'
       }
     },
@@ -40,8 +34,8 @@ module.exports = function(grunt) {
     },
     watch: {
       less: {
-        files: ['less/**/*.less', 'index.html', 'js/*.js', '!js/script.js'],
-        tasks: ['compile'],
+        files: [ 'less/**/*.less', 'index.html', 'js/*.js' ],
+        tasks: [ 'compile' ],
         options: {
           livereload: true
         }
