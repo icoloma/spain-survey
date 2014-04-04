@@ -19,7 +19,7 @@ var
       li.classList.remove("hidden");
       li.querySelector("a").setAttribute("href", url)
     } 
-  })
+  });
 
 
 /*
@@ -30,11 +30,8 @@ if (languages.indexOf(userLang) > -1) {
   var li = document.querySelector('.language-' + userLang);
   li.parentElement.insertBefore(li, li.parentElement.children[0]);
 }
-*/
 
-/*
-  Elimina los 'ghost clicks' en móviles  
-*/
+//  Elimina los 'ghost clicks' en móviles  
 if ( 'ontouchstart' in window ||
     (window.DocumentTouch && document instanceof DocumentTouch) ) {
   var links = document.querySelectorAll('.language-link')
@@ -81,4 +78,7 @@ if ( 'ontouchstart' in window ||
     links[i].addEventListener('click', clickHandler);
   }
   document.addEventListener('touchcancel', cancelTap);
-}})(window, document);
+  }
+*/
+
+})(window, document);
