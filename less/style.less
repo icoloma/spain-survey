@@ -1,0 +1,253 @@
+@import "bootstrap/bootstrap.less";
+@import "fonts.less";
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);  
+}
+
+/* GENERAL */
+body {
+  background: #1f1f1e;
+  font-family: 'pill_gothic_600mg_rgregular', Arial, sans;
+  font-size: 30px;
+}
+
+a, a:visited, a:hover, a:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* NAV */
+nav {
+  background: white;
+  color: black;
+
+  h1 {
+    height: 95px;
+    margin: 0;
+    padding-left: 120px;
+    font-size: 30px;
+
+
+    color: white;
+    background: black url(img/logo-espana.jpg) no-repeat;
+    background-size: 100px;
+    
+    font-family: 'pill_gothic_600mg_rgbold', Arial, sans;
+    line-height: 95px;
+    font-weight: normal;
+  }
+}
+
+
+/* MAIN */
+.hidden {
+  display: none;
+}
+.main {
+  background: white;
+}
+
+@ulWidth: 320px;
+.languages {
+  width: @ulWidth;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+
+@liHeight: 100px;
+@flagRadius: 50px;
+@flagMargin: 50px;
+@spriteWidth: 2*(@flagRadius+@flagMargin);
+@bgWidth: @spriteWidth*(@liHeight - 20px)/(2*@flagRadius);
+@bgHMargin: @bgWidth/4;
+@bgVMargin: @bgWidth/4 - 20px/2;
+
+.language {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: @ulWidth;
+  height: @liHeight;
+  max-width: 100%;
+  margin-bottom: 20px;
+  
+  .language-link {
+    display: block;
+    height: 100%;
+    padding-left: @liHeight;
+
+    -webkit-transition: border .2s .2s;
+    transition: border .2s .2s;
+
+    background: url(img/flags.png) no-repeat -@bgHMargin -@bgVMargin;
+    background-size: @bgWidth;
+    border: 3px dotted white;
+  }
+
+  .fake-active {
+    border: 3px dotted lightgrey;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.language-fr .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth); }
+.language-en .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*2); }
+.language-de .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*3); }
+
+.language-name, .cta {
+  display: block;
+}
+
+.language-name {
+  padding-top: 20px;
+  line-height: 35px;
+}
+
+.cta {
+  font-size: 12px;
+  line-height: 15px;
+  color: #555;
+}
+
+/* FOOTER */
+footer {
+  color: #686868;
+  background-color: #1f1f1e;
+  background:  url(img/footer.png) no-repeat 50% 0%;
+  background-size: 100%;
+}
+
+.footer-container {
+  height: 100px;
+  max-width: 178px;
+  margin: auto;
+}
+
+/* MOVIL PEQUEÑO */
+@media (max-width: 319px) {
+  @fontSize: 25px;
+  @navHeight: 71px;
+  @logoWidth: 75px;
+
+  body {
+    font-size: @fontSize;
+  }
+
+  nav h1 {
+    height: @navHeight;
+    
+    line-height: @navHeight;
+    font-size: @fontSize;
+
+    padding-left: @logoWidth + 10px;
+    background-size: @logoWidth;
+  }
+
+  .languages {
+    width: auto;
+  }
+
+  @liHeight: 80px;
+  @bgWidth: @spriteWidth*(@liHeight - 15px)/(2*@flagRadius);
+  @bgVMargin: @bgWidth/4 - 15px/2;
+  @bgHMargin: @bgWidth/4;
+
+  .language {
+    height: @liHeight;
+    .language-link {
+      padding-left: @liHeight;
+
+      background-position: -@bgHMargin -@bgVMargin;
+      background-size: @bgWidth;
+    }
+
+  }
+
+  .language-fr .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth); }
+  .language-en .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*2); }
+  .language-de .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*3); }
+
+  .language-name, .cta {
+    display: block;
+  }
+
+  .language-name {
+    padding-top: 15px;
+    line-height: 30px;
+  }
+
+}
+
+/* MOVIL MUY PEQUEÑO */
+@media (max-width: 259px) {
+  @fontSize: 20px;
+  @navHeight: 61px;
+  @logoWidth: 65px;
+
+  body {
+    font-size: @fontSize;
+  }
+
+  nav h1 {
+    height: @navHeight;
+    padding-left: @logoWidth + 5px;
+    
+    line-height: @navHeight;
+    font-size: @fontSize;
+
+    background-size: @logoWidth;
+  }
+
+  @liHeight: 50px;
+  @bgWidth: @spriteWidth*(@liHeight - 15px)/(2*@flagRadius);
+  @bgVMargin: @bgWidth/4 - 15px/2;
+  @bgHMargin: @bgWidth/4;
+  
+  .languages {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .language {
+    height: auto;
+    .language-link {
+      padding-left: @liHeight;
+
+      background-position: -@bgHMargin -@bgVMargin;
+      background-size: @bgWidth;
+    }
+
+  }
+
+  .language-fr .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth); }
+  .language-en .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*2); }
+  .language-de .language-link { background-position: -@bgHMargin (-@bgVMargin - @bgWidth*3); }
+
+  .language-name, .cta {
+    display: block;
+  }
+
+  .language-name {
+    padding-top: 5px;
+    line-height: 25px;
+  }
+
+}
+
+/* PANTALLAS GRANDES */
+@media (min-width: 480px) {
+  nav, hgroup {
+    .clearfix();
+  }
+  nav h1 {
+    width: 70%;
+    float: right;
+  }
+}
