@@ -1,1 +1,24 @@
-!function(a,b){"use strict";var c=function(a,b){var c=(b||location.search).match(RegExp("[?&]"+a+"=(.+?)(&|$)"));return c&&decodeURIComponent(c[1].replace(/\+/g," "))};Array.prototype.forEach.call(b.querySelectorAll("li.language"),function(a){var b,d;Array.prototype.forEach.call(a.classList,function(a){var c=/language-(.+)/.exec(a);b=b||c&&c[1]}),d=c(b),d&&(a.classList.remove("hidden"),a.querySelector("a").setAttribute("href",d))})}(window,document);
+(function(window, document) {
+  "use strict";
+
+var 
+  getURLParam = function(name, url) {
+    var paramValue = (url || location.search).match(RegExp('[?&]' + name + '=(.+?)(&|$)'));
+    return paramValue && decodeURIComponent(paramValue[1].replace(/\+/g, ' '));
+  }
+
+  // muestra los idiomas pasados en la URL y actualiza los paths
+  Array.prototype.forEach.call(document.querySelectorAll("li.language"), function(li) {
+    var lang, url;
+    Array.prototype.forEach.call(li.classList, function(className) {
+      var parts = /language-(.+)/.exec(className);
+      lang = lang || parts && parts[1]
+    }), 
+    url = getURLParam(lang);
+    if (url) {
+      li.classList.remove("hidden");
+      li.querySelector("a").setAttribute("href", url)
+    } 
+  });
+
+})(window, document);
