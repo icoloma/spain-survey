@@ -13,7 +13,7 @@ Para generar un desplegable (el desplegable estará en la carpeta build)
 grunt build
 ```
 
-Para desplegar en producción, copiar el desplegable al branch `gh-pages`.
+Para desplegar en producción, copiar el desplegable al branch `gh-pages`. Hay un task `grunt deploy` que hace esta copia, si se hace checkout en una carpeta aparte llamada `spain-survey-ghpages`
 
 ## Uso
 

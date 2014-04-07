@@ -17,6 +17,11 @@ module.exports = function(grunt) {
       build: {
         src: ['css/**', 'index.html', 'fonts/**', 'img/**' ],
         dest: 'build/'
+      },
+      deploy: {
+        cwd: 'build',
+        src: '**',
+        dest: '../spain-survey-ghpages/'
       }
     },
     less: {
@@ -69,6 +74,8 @@ module.exports = function(grunt) {
   grunt.registerTask('compile', ['clean:css', 'less:dev', 'copy:css', 'concat:dev']);
   grunt.registerTask('default', ['connect:dev', 'watch']);
   grunt.registerTask('build',
-    ['clean:build', 'less:build', 'copy:build', 'uglify', 'connect:build']);
+    ['clean:build', 'less:build', 'copy:build', 'uglify'/*, 'connect:build'*/]);
+  grunt.registerTask('deploy',
+    [ 'build', 'copy:deploy']);
 
 }

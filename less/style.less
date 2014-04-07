@@ -27,15 +27,14 @@ nav {
     margin: 0;
     padding-left: 120px;
     font-size: 30px;
-
-
     color: white;
-    background: black url(../img/logo-espana.jpg) no-repeat;
-    background-size: 100px;
-    
     font-family: 'pill_gothic_600mg_rgbold', Arial, sans;
     line-height: 95px;
     font-weight: normal;
+
+    // was: black
+    background: #8cab00 url(../img/logo-espana.jpg) no-repeat;
+    background-size: 100px;
   }
 }
 
@@ -45,7 +44,7 @@ nav {
   display: none;
 }
 .main {
-  background: white;
+  background: white url(../img/footer.png) no-repeat 50% 0%;
 }
 
 @ulWidth: 320px;
@@ -77,20 +76,20 @@ nav {
   max-width: 100%;
   margin-bottom: 20px;
   
-  .language-link {
-    display: block;
-    height: 100%;
-    padding-left: @liHeight;
+}
 
-    -webkit-transition: border .2s .2s;
-    transition: border .2s .2s;
+.language-link {
+  display: block;
+  height: 100%;
+  padding-left: @liHeight;
 
-    background: url(../img/flags.png) no-repeat -@bgHMargin -@bgVMargin;
-    background-size: @bgWidth;
-    border: 3px dotted white;
-  }
+  -webkit-transition: border .2s .2s;
+  transition: border .2s .2s;
 
-  :active {
+  background: url(../img/flags.png) no-repeat -@bgHMargin -@bgVMargin;
+  background-size: @bgWidth;
+
+  &:active {
     border: 3px dotted lightgrey;
     -webkit-transition: none;
     transition: none;
@@ -119,15 +118,17 @@ nav {
 /* FOOTER */
 footer {
   color: #686868;
-  background-color: #1f1f1e;
-  background:  url(../img/footer.png) no-repeat 50% 0%;
+  background-color: white;
   background-size: 100%;
+  padding-top: 10px;
+  border-top: 3px solid #ccc;
 }
 
 .footer-container {
   height: 100px;
-  max-width: 178px;
-  margin: auto;
+  margin: 0 auto;
+  background: url(../img/logos.png) no-repeat 50% 50%;
+  background-size: contain;
 }
 
 /* MOVIL PEQUEÑO */
