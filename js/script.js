@@ -8,14 +8,16 @@ var
   }
 
   // muestra los idiomas pasados en la URL y actualiza los paths
-  Array.prototype.forEach.call(document.querySelectorAll("li.language"), function(li) {
-    var parts = /language-([^ ]+)/.exec(li.className)
+  var lis = document.querySelectorAll("li.language")
+  for (var i = 0; i < lis.length; i++) {
+    var li = lis[i]
+    , parts = /language-([^ ]+)/.exec(li.className)
     , lang = parts && parts[1]
     , url = getURLParam(lang);
     if (url) {
       li.className = li.className.replace("hidden", "");
       li.querySelector("a").setAttribute("href", url)
     } 
-  });
+  }
 
 })(window, document);
