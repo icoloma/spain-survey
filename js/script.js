@@ -1,6 +1,8 @@
 (function(window, document) {
   "use strict";
 
+console.log(location.href);
+
 var 
   getURLParam = function(name, url) {
     var paramValue = (url || location.search).match(RegExp('[?&]' + name + '=(.+?)(&|$)'));
